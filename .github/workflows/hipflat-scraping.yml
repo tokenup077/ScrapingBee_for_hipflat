@@ -3,7 +3,7 @@ name: Hipflat Scraping
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # 毎日午前1時（UTC）に実行
+    - cron: '0 1 1 * *'  # 毎月午前1時（UTC）に実行
   workflow_dispatch:    # 手動実行用トリガー
 
 jobs:
@@ -39,7 +39,7 @@ jobs:
         
     - name: Archive results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: scraping-results
         path: |
